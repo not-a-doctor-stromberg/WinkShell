@@ -19,7 +19,7 @@ set $term foot
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
-set $menu wofi --show drun -i | xargs swaymsg exec --
+set $menu fuzzel
 
 ### Output configuration
 #
@@ -73,6 +73,7 @@ input type:touch {
 	accel_profile flat
 }
 
+# ARS make ctrl caps
 input type:keyboard {
 	xkb_options ctrl:nocaps
 }
