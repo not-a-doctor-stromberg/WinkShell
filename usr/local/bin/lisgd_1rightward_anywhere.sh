@@ -1,4 +1,0 @@
-#!/bin/bash
-
-swaymsg 'workspace "prev"'
-exec /usr/local/bin/sov_refresh.sh
