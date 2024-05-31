@@ -14,6 +14,9 @@ exec --no-startup-id dbus-update-activation-environment --systemd GNOME_KEYRING_
 # Logo key. Use Mod1 for Alt.
 set $mod Mod1
 
+bindsym Ctrl+Space exec dbus-send --system --print-reply --dest=org.pinenote.ebc /ebc org.pinenote.ebc.TriggerGlobalRefresh
+
+
 # Home row direction keys, like vim
 set $left h
 set $down j
@@ -78,9 +81,9 @@ input type:touch {
 	accel_profile flat
 }
 
-# ARS make ctrl caps
+# ARS make caps a ctrl
 input type:keyboard {
-	xkb_options ctrl:nocaps
+  xkb_options ctrl:nocaps
 }
 
 # bindgesture hold:1 { echo "click right" | dotool }
@@ -94,6 +97,7 @@ floating_modifier Alt normal
 #
     # Start a terminal
     bindsym $mod+Return exec $term
+    
     bindsym $mod+Shift+t exec foot
 
     # Kill focused window
@@ -398,5 +402,8 @@ bindsym $mod+Down exec brightnessctl -d backlight_warm s 15-
 # exec_always rot8 -d DPI-1 -x /sys/bus/iio/devices/iio:device2/in_accel_x_raw -y /sys/bus/iio/devices/iio:device2/in_accel_x_raw --scale 1
 
 # exec_always env RUST_BACKTRACE=1 RUST_LOG=swayr=debug swayrd > /tmp/swayrd.log 2>&1
+
+# [ARS] Start in tabbed mode
+workspace_layout tabbed
 
 include /etc/sway/config.d/*
