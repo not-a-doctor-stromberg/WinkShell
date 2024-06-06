@@ -8,13 +8,18 @@ exec_always systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
 exec --no-startup-id gnome-keyring-daemon
 exec --no-startup-id dbus-update-activation-environment --systemd GNOME_KEYRING_CONTROL GNOME_KEYRING_PID GPG_AGENT_INFO SSH_AUTH_SOCK
 
+# ARS resume maestral on start up
+exec --no-startup-id maestral resume
+
 
 ### Variables
 #
 # Logo key. Use Mod1 for Alt.
 set $mod Mod1
 
+# Use Ctrl as ebc mod
 bindsym Ctrl+Space exec dbus-send --system --print-reply --dest=org.pinenote.ebc /ebc org.pinenote.ebc.TriggerGlobalRefresh
+bindsym Ctrl+semicolon exec echo "bw+dither\ngreyscale" | fuzzel -d | change_mode.sh
 
 
 # Home row direction keys, like vim
