@@ -256,19 +256,20 @@ bar {
 
 bar {
 	id hw
-	swaybar_command true
+  swaybar_command exec waybar -c "~/.config/waybar/waybar_bars.config"
+	# swaybar_command true
 	mode hide
 	hidden_state show
 	position top
  }
 
-bar {
-	id hw_expanded
-	swaybar_command true
-	mode invisible
-	hidden_state show
-	position top
-}
+# bar {
+# 	id hw_expanded
+# 	swaybar_command true
+# 	mode invisible
+# 	hidden_state show
+# 	position top
+# }
 
 # exec_always killall waybar ; waybar -c ~/.config/waybar/waybar_hw.config
 
