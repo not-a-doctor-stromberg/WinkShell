@@ -1,0 +1,4 @@
+[Desktop Entry]
+Name=Sway with Environment Variables
+Exec=/usr/local/bin/sway-run
+Type=Application

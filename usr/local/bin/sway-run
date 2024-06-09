@@ -1,20 +1,20 @@
 #!/bin/sh
 
+# Mostly taken from https://man.sr.ht/~kennylevinsen/greetd/#how-to-set-xdg_session_typewayland
+
 # Session
 export XDG_SESSION_TYPE=wayland
 export XDG_SESSION_DESKTOP=sway
 export XDG_CURRENT_DESKTOP=sway
+
 # Wayland stuff
 export MOZ_ENABLE_WAYLAND=1
-
-
-
-
-
-
 
 export QT_QPA_PLATFORM=wayland
 export SDL_VIDEODRIVER=wayland
 export _JAVA_AWT_WM_NONREPARENTING=1
 
-exec sway -c /home/m4n4pe/.config/sway/config  $@
+# [ARS] add shell variables to sway-run
+export PATH=$PATH:/usr/local/bin/WinkShell
+
+exec systemd-cat --identifier=sway sway "$@"
