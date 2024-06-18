@@ -243,25 +243,35 @@ bindsym $mod+r mode "resize"
 # bar  {
 #      swaybar_command waybar -c ~/.config/waybar/waybar_hw.config
 #      id bar-0
-#  }
-
+# }
 
 bar {
-    id center
-    swaybar_command exec waybar -c "~/.config/waybar/waybar_bars.config"
-    mode hide
-    hidden_state show
+    # swaybar_command "waybar -c '/home/user/devel/WinkShell/config/waybar/simple.config' -s '/home/user/devel/WinkShell/config/waybar/system_default.css' | tee /home/user/waybar.log"
+    # swaybar_command swaynag "hi"
+    swaybar_command waybar-pinenote.sh
+
+    # [ARS] This is copied from /etc/sway/config
     position top
+
+    # When the status_command prints a new line to stdout, swaybar updates.
+    # The default just shows the current date and time.
+    status_command while date +'%Y-%m-%d %X'; do sleep 1; done
+
+    colors {
+        statusline #ffffff
+        background #323232
+        inactive_workspace #32323200 #32323200 #5c5c5c
+    }
 }
 
-bar {
-	id hw
-  swaybar_command exec waybar -c "~/.config/waybar/waybar_bars.config"
-	# swaybar_command true
-	mode hide
-	hidden_state show
-	position top
- }
+#bar {
+#	id hw
+#  swaybar_command exec waybar -c "~/.config/waybar/waybar_bars.config"
+#	# swaybar_command true
+#	mode hide
+#	hidden_state show
+#	position top
+# }
 
 # bar {
 # 	id hw_expanded
@@ -411,5 +421,8 @@ bindsym $mod+Down exec brightnessctl -d backlight_warm s 15-
 
 # [ARS] Start in tabbed mode
 workspace_layout tabbed
+
+# [ARS] Hide cursor to remove tooltips when needed
+seat * hide_cursor 1000
 
 include /etc/sway/config.d/*

@@ -1,0 +1,173 @@
+* {
+    /* `otf-font-awesome` is required to be installed for icons */
+    font-family: phosphor, Bitter;
+    font-size: 15px;
+}
+
+
+#window,
+#clock,
+#workspaces,
+#custom-copy,
+#custom-paste,
+#custom-screenshot,
+#custom-stylusmode,
+#custom-touchmode,
+#custom-display,
+#custom-ctrlpanel,
+#bluetooth,
+#custom-waybar_expand,
+#custom-waybar_hide,
+#battery,
+#idle_inhibitor,
+#backlight,
+#memory,
+#disk,
+#cpu,
+#temperature,
+#network,
+#pulseaudio,
+#custom-media  {
+	background-color: rgba(255,255,255,1);
+	 /*  background-image: linear-gradient(rgba(255, 255, 255, 1), rgba(255, 255, 255, 0)); */
+	text-shadow: none;
+	color: #000000;
+    border-bottom: 2px solid #000000;
+    border-left: none;
+    border-top: none;
+  /*  border-left: 1px solid #000000;
+  */  border-right: 1px solid #aaaaaa;
+    margin: 0px 0px 0px 0px;
+    padding: 4px 5px 1px 5px;
+  /*  border-radius: 0px 0px 3px 0px;
+   */ font-size: 15px;
+}
+
+#custom-waybar_expand,
+#custom-waybar_collapse {
+    border-right: 1px solid #aaaaaa;
+    border-top: none;
+    border-left: none;
+    border-radius: 0px 0px 3px 0px;
+}
+
+#workspaces  {
+    border-left: 1px solid #aaaaaa;
+    border-right: 1px solid #aaaaaa;
+    border-radius: 0px 0px 0px 3px;
+}
+
+#clock  {
+    border-left: none;
+    border-radius: 0px 0px 3px 0px;
+    }
+
+window#waybar {
+    background-color: rgba(255, 255, 255, 0);
+/*    border-bottom: 1px solid rgba(0, 0, 0, 1.0);
+*/   color: #000000;
+    border: none;
+    padding: 0px 0px 0px 0px;
+    transition-property: background-color;
+    transition-duration: .1s;
+    margin: 0px 0px 0px 0px;
+}
+
+
+window#waybar.hidden {
+    opacity: 0.1;
+}
+
+/*
+window#waybar.empty {
+    background-color: transparent;
+    border: none;
+}
+*/
+
+#workspaces button {
+    background-color: rgba(255, 255, 255, 0.0);
+    color: rgba(255,255,255,0.0);
+    border: none;
+    margin: 0;
+    padding: 0;
+}
+ 
+#workspaces button.focused {
+    color: #000000;
+    background-color: rgba(255,255,255,0);
+    border-bottom: none;
+    padding: 0px;
+    margin: 0px;
+}
+
+/*
+#waybar.empty #window {
+    background-color: rgba(255, 255, 255, 0);
+    border: none;
+}
+*/
+
+/* If workspaces is the leftmost module, omit left margin 
+.modules-left > widget:first-child > #workspaces {
+    margin-left: 0;
+}*/
+
+/* If workspaces is the rightmost module, omit right margin 
+.modules-right > widget:last-child > #workspaces {
+    margin-right: 0;
+} */
+
+
+#battery.charging, #battery.plugged {
+    background-color: #808080;
+    color: #ffffff;
+}
+
+
+#battery.critical:not(.charging) {
+    background-color: #ffffff;
+    color: #000000;
+    animation-name: blink;
+    animation-duration: 1.0s;
+    animation-timing-function: steps(2, start);
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+}
+
+@keyframes blink {
+    50% {
+        background-color: #000000;
+        color: #ffffff;
+    }
+}
+
+#network.disconnected {
+    background-color: #808080;
+    color: #ffffff;
+}
+
+
+#pulseaudio.muted {
+    background-color: #808080;
+    color: #ffffff;
+}
+
+#temperature.critical {
+    background-color: #808080;
+    color: #000000;
+}
+
+#tray {
+    background-color: transparent;
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+    background-color: #808080;
+}
+
